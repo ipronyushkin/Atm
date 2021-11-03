@@ -24,7 +24,7 @@ namespace Atm
 
             if (cash < 0)
             {
-                Console.WriteLine("Type a positive number!");
+                throw new Exception("Type a positive number!");
             }
 
             Console.WriteLine("Enter array length: ");
@@ -44,7 +44,7 @@ namespace Atm
 
             if (size < 0)
             {
-                Console.WriteLine("Type a positive number!");
+                throw new Exception("Type a positive number!");
             }
             
             int[] banknote = new int[size];
@@ -66,7 +66,7 @@ namespace Atm
                 }
                 if (banknote[i] < 0)
                 {
-                    Console.WriteLine("Type a positive number!");
+                    throw new Exception("Type a positive number!");
                 }
             }
 
