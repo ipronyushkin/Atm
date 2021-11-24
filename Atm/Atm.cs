@@ -7,7 +7,7 @@ namespace Atm
     {
         public void getAnswer(int cash, int[] banknote, int ind, string str, List<string> ans)
         {
-            for(int i = ind; i > -1; i--)
+            for(var i = ind; i > -1; i--)
             {
                 if (cash - banknote[i] > 0)
                 {

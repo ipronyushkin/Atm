@@ -1,80 +1,60 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+
 
 namespace Atm
 {
     internal class Program
     {
+        private static int TryParseInt32(string text)
+        {
+            int value;
+            return int.TryParse(text, out value) ? value : 0;
+        }
         public static void Main(string[] args)
         {
             Console.WriteLine("Enter the amount of money: ");
-            int cash = 0;
+            var cash = 0;
             try
             {
                 cash = Int32.Parse(Console.ReadLine());
             }
-            catch (FormatException)
+            catch (FormatException formatException)
             {
                 Console.WriteLine("This is not an integer!");
+                return;
             }
-            catch (OverflowException)
+            catch (OverflowException overflowException)
             {
-                Console.WriteLine("You entered too many numbers!");
+                Console.WriteLine("You entered too many digits!");
+                return;
             }
 
             if (cash < 0)
             {
-                throw new Exception("Type a positive number!");
+                Console.WriteLine("Type a positive number!");
+                return;
             }
-
-            Console.WriteLine("Enter array length: ");
-            int size = 0;
-            try
-            {
-                size = Int32.Parse(Console.ReadLine());
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("This is not an integer!");
-            }
-            catch (OverflowException)
-            {
-                Console.WriteLine("You entered too many numbers!");
-            }
-
-            if (size < 0)
-            {
-                throw new Exception("Type a positive number!");
-            }
-            
-            int[] banknote = new int[size];
+            var array = new[] {2, 3, 4};
             Console.WriteLine("Enter array elements: ");
-            for (int i = 0; i < size; i++)
-            {
-                banknote[i] = 0;
-                try
-                {
-                    banknote[i] = Int32.Parse(Console.ReadLine());
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("This is not an integer!");
-                }
-                catch (OverflowException)
-                {
-                    Console.WriteLine("You entered too many numbers!");
-                }
-                if (banknote[i] < 0)
-                {
-                    throw new Exception("Type a positive number!");
-                }
-            }
+            var banknote = Console.ReadLine()
+                ?.Split(new[] {' '})
+                .Select(TryParseInt32)
+                .Where(x => x > 0)
+                .Distinct()
+                .OrderBy(x => x)
+                .ToArray();
 
-            Array.Sort(banknote);
-            Atm atm = new Atm();
-            List<string> ans = new List<string>();
-            string str = "";
-            atm.getAnswer(cash, banknote, size - 1, str, ans);
+            /*foreach (var item in banknote)
+            {
+                Console.WriteLine(item);
+            }*/
+            
+            var atm = new Atm();
+            var ans = new List<string>();
+            var str = "";
+            atm.getAnswer(cash, banknote, banknote.Length - 1, str, ans);
             for (int i = 0; i < ans.Count; i++)
             {
                 Console.Write(ans[i]);

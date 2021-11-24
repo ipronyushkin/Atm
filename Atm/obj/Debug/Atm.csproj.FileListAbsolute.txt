@@ -4,3 +4,9 @@ C:\C#\Atm\Atm\obj\Debug\Atm.csprojAssemblyReference.cache
 C:\C#\Atm\Atm\obj\Debug\Atm.csproj.CoreCompileInputs.cache
 C:\C#\Atm\Atm\obj\Debug\Atm.exe
 C:\C#\Atm\Atm\obj\Debug\Atm.pdb
+C:\Users\prona\RiderProjects\Atm\Atm\bin\Debug\Atm.exe
+C:\Users\prona\RiderProjects\Atm\Atm\bin\Debug\Atm.pdb
+C:\Users\prona\RiderProjects\Atm\Atm\obj\Debug\Atm.csproj.AssemblyReference.cache
+C:\Users\prona\RiderProjects\Atm\Atm\obj\Debug\Atm.csproj.CoreCompileInputs.cache
+C:\Users\prona\RiderProjects\Atm\Atm\obj\Debug\Atm.exe
+C:\Users\prona\RiderProjects\Atm\Atm\obj\Debug\Atm.pdb
